@@ -1,0 +1,17 @@
+//新プログラミング作法　入力した数に応じた生徒の名前の、3文字目を出力
+
+#include <stdio.h>
+#define NUM 5
+#define NAME_LEN 10
+int main(void){
+    // Your code here!
+    int no;
+    char name[NUM][NAME_LEN]
+    ={"Alice","Bob","Caroline","David","Eve"};
+    printf("Student number?  (0-%d): ", NUM-1);
+    scanf("%d", &no);
+    printf("Name: %s\n", name[no]);
+    printf("The first name of this name is:%c\n",name[no][2]);
+    
+    return 0;
+}
