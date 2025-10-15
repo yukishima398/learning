@@ -1,0 +1,23 @@
+#include <stdio.h> //　ひとつ前のコードをswitchではなくifで表したもの。あまりテキスト見ずにやったけど動いたからうれしい！
+int main(void){
+    int a;
+    printf("Enter interger (0-2):");scanf("%d",&a);
+    if a == 0{
+        printf("small size\n");
+    }
+    else if a == 1
+    {
+        printf("medium siza\n");
+    }
+    else if a == 2
+    {
+        printf("larga size\n");
+    }
+    else
+    {
+        printf("error occured!");
+    }
+    
+
+    return 0;
+}
