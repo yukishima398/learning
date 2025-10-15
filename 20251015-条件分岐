@@ -1,0 +1,14 @@
+#include <stdio.h>
+int main(void){
+    int a;
+    printf("Enter interger (0-2):");scanf("%d",&a);
+    switch (a)
+    {
+        case 0: printf("Small size\n"); break;
+        case 1:printf("medium size\n"); break;
+        case 2:printf("large size\n"); break;
+        default :printf("error!"\n);break; // ここのbreakは消しても問題なさそ
+    }
+    
+    return 0;
+}
