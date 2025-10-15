@@ -1,0 +1,13 @@
+int main(void){
+    // Your code here!
+    int x;
+    printf ("　Enter a positive integer:　");scanf("%d", &x);
+    if (x <= 0){
+        printf("input error!\n");
+        return -1;
+    }
+    printf("You entered %d\n", x);
+    
+    return 0;
+
+}
