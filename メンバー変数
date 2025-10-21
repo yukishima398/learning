@@ -1,0 +1,20 @@
+//メンバー変数を定義し、マイフレームコンソールにプレイヤー名を表示
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Lesson1 : MonoBehaviour
+{
+    public string PlayerName = "No name";
+    // Start is called before the first frame update
+    void Start()
+    {
+        PlayerName = "John";
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        UnityEngine.Debug.Log(PlayerName);
+    }
+}
