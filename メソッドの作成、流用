@@ -1,0 +1,30 @@
+
+
+    // Update is called once per frame
+    void Update()
+    {
+        string message = GetMessage(PlayerName);
+        UnityEngine.Debug.Log(message);
+    }
+
+    string GetMessage(string messenger)
+    {
+        string curtime = DateTime.Now.ToLongTimeString();
+        return PlayerName + "「今は" + curtime + "」"; //PlayerNameをmessengerに変えても動く
+    }
+}
+
+
+/*（日本語訳（多分これでいいよね？）:
+message関数の中身はGetmessaage関数にPlayerName引数をぶち込んだもの
+messageを表示
+
+中身が文字列であるGetmessage関数を呼び出す時、中身が文字列であるmessenger引数にGetmessageが受け取ったのと同引数数を渡す（あんま意味はない）
+
+ここからGetmessageの中身
+プレイヤー名に（messengerにもPlayer変数が打ち込まれてるけど）今はとcurtimeと」をつけて一つの文字列に
+これをupdateメソットに返す
+（うーむ本格的にわからなくなってきた９
+*/
+
+
