@@ -1,0 +1,100 @@
+/*switchを使って特定の処理を選ぶ
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Leeson3 : MonoBehaviour
+{
+    public string Command = "destroy";
+    // Start is called before the first frame update
+    void Start()
+    {
+        switch (Command)
+        {
+            case "save":
+            UnityEngine.Debug.Log("保存します");
+            break;
+
+            case "print":
+            UnityEngine.Debug.Log("印刷します");
+            break;
+
+            case "destroy":
+            UnityEngine.Debug.Log("破壊します");
+            break;
+
+            default:
+            UnityEngine.Debug.Log("命令が理解できません");
+            break;
+
+        
+        }
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+}
+
+
+
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Lesson4 : MonoBehaviour
+{
+    // Start is called before the first frame update
+    void Start()
+    {
+        /*whileを使った繰り返し⭐️
+        int x = 0;
+        while (x < 8)
+        {
+            x = UnityEngine.Random.Range(0,10);
+            UnityEngine.Debug.Log(x);
+        }
+        UnityEngine.Debug.Log("終了");*/
+
+        /*do while を使った繰り返し
+        int x =0;
+        do{
+            x = UnityEngine.Random.Range(0,10);
+            UnityEngine.Debug.Log(x);
+        }while (x < 7);
+        UnityEngine.Debug.Log("終了");*/
+
+        /*回数を指定した繰り返し
+        for(int x = 1; x < 6; x++)
+        {
+            UnityEngine.Debug.Log(x + "ノ裁キ放射");
+        }
+        UnityEngine.Debug.Log("終");*/
+
+        /*特定の条件を満たすと終了する繰り返し
+        for (int x = 0; x < 999; x++){
+            if(x >= 3)break;
+            UnityEngine.Debug.Log(x + "エアロスミス");
+        }
+         UnityEngine.Debug.Log("奈良のナランチャ");*/
+
+         /*特定の条件が満たされた場合、一度スキップしつつ繰り返す
+         for (int i = 0; i<3; i++){
+            if(i == 2)continue;
+            UnityEngine.Debug.Log(i + "トマトマン");
+         }
+         UnityEngine.Debug.Log("ぐちゃ");
+         */
+
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+}
