@@ -1,0 +1,28 @@
+構造体についてはあんまり理解できてない
+
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class ImageMove : MonoBehaviour
+{
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        /*Transform tr = this.GetComponent<Transform>();　//Transform型というのがある。trをコンポーネントのtransformを入れる
+        Vector3 pos = tr.position;//取得したコンポーネントのpositionをpos変数に
+        pos.x = Random.Range (-2.0f,2.0f);//posを通してvectorのxを変える
+        pos.y = Random.Range(-2.0f,2.0f);
+        tr.position = pos;*/　//posに格納された引数をコンポーネントに反映させる
+        Transform tr = this.GetComponent<Transform>();
+        tr.position = new Vector3(1, 2, 3);//vector3はXYZ?それを確かめるためのもの
+        
+    }
+
+}
