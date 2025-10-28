@@ -1,0 +1,12 @@
+//標準入力を受け取り、それを120して返す
+
+using System;
+class Program
+{
+    static void Main()
+    {
+        string input = Console.ReadLine();
+        int line =int.Parse(input);
+        Console.WriteLine(line - 120);
+    }
+}
