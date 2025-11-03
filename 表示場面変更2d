@@ -1,0 +1,84 @@
+//　壁を切り替えるためのコードを書いていくよー　
+
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class GameManager : MonoBehaviour
+
+
+{
+public const int WALL_FRONT = 1;
+public const int WALL_RIGHT = 2;
+public const int WALL_BACK = 3;
+public const int WALL_LEFT = 4;
+
+public GameObject PanelWalls; //GameObject型のPanellWallsを操作できるようにして
+//Game Object型だとUnityから操作できる。該当する変数をエディタ側で登録する必要があるけど。
+
+public GameObject buttonMessage;
+public GameObject buttonMessagetext;
+
+private int WallNo;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        WallNo = WALL_FRONT;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+    public void PushButtonRight(){
+        WallNo++;
+        if(WallNo > WALL_LEFT){
+            WallNo = WALL_FRONT;
+        }
+        DisplayWall (); //壁表示更新
+    }
+    public void PushButtonLeft(){
+        WallNo--;
+        if(WallNo < WALL_FRONT){
+            WallNo = WALL_LEFT;
+        }
+        DisplayWall (); //壁表示更新
+    }
+
+    void DisplayMessage(string mes){
+        buttonMessage.SetActive(true);
+        buttonMessagetext.GetComponent<Text>().text = mes;
+    }
+
+    //向いている壁を表示
+    void DisplayWall(){
+        switch(WallNo){
+            case WALL_FRONT:
+            PanelWalls.transform.localPosition = new Vector3 (0.0f,0.0f,0.0f);
+            break;
+            case WALL_RIGHT:
+            PanelWalls.transform.localPosition = new Vector3 (-1000.0f,0.0f,0.0f);
+            break;
+            case WALL_BACK:
+            PanelWalls.transform.localPosition = new Vector3 (-2000.0f,0.0f,0.0f);
+            break;
+            case WALL_LEFT:
+            PanelWalls.transform.localPosition = new Vector3 (-3000.0f,0.0f,0.0f);
+            break;
+            
+        }
+    }
+    //メモをタップ
+    public void PushButtonMemo(){
+    DisplayMessage("エッフェル塔と書いてある");
+    }
+    
+    //メッセージをタップ
+    public void PushButtonMessage(){
+            buttonMessage.SetActive(false);
+        }
+    }
+
