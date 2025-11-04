@@ -1,0 +1,147 @@
+using System.Collections;
+using System.Collections.Generic; //上とこれは微妙に扱える範囲が違う
+using UnityEngine;
+using UnityEngine.UI;//この二つは上がコアな機能、下がUi関連の機能を扱うため両方必須
+
+public class GameManager : MonoBehaviour
+
+
+{
+public const int WALL_FRONT = 1;
+public const int WALL_RIGHT = 2;
+public const int WALL_BACK = 3;
+public const int WALL_LEFT = 4;
+
+//定数定義:ボタンカラー
+
+public const int COLOR_GREEN = 0;
+public const int COLOR_RED = 1;
+public const int COLOR_BLUE = 2;
+public const int COLOR_WHITE = 3;
+
+public GameObject PanelWalls; //GameObject型のPanellWallsを操作できるようにして
+public GameObject buttonHammer; //ハンマーのボタン
+public GameObject imageHammerIcon; //ハンマーを入れるアイコン
+
+public GameObject buttonMessage;
+public GameObject buttonMessagetext;
+
+public GameObject[] buttonLamp = new GameObject[3];//newは変数ではなくキーワード。buttonLampという名前の、三つGameObject型変数を入れられるものを宣言した
+public Sprite[] buttonPicture = new Sprite[4];
+public Sprite hammerPicture;//spriteは画像を扱うための型。上なら四つ要素（画像）を格納可能
+
+private int WallNo;//向いている壁の方向　privateをつけるとそのクラスの中でしか指定できない。バグなど混雑の対策。
+private bool doesHaveHammer; //範馬持ってる？
+private int[] buttonColor = new int[3]; /*１、２、３番目のボタンの色
+buttonColor[0,1,2] = 翠、赤、青*/
+
+
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        WallNo = WALL_FRONT;
+        doesHaveHammer = false;
+
+        buttonColor[0] = COLOR_GREEN;
+        buttonColor[1] = COLOR_RED;
+        buttonColor[2] = COLOR_BLUE;
+    }//一番目に翠、二番目に赤、三番目に青を入れる
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+    //金庫のボタンをそれぞれタップ
+    public void PushButtonLamp1(){
+        ChangeButtonColor(0);//ここでbuttonNoに０を渡す。
+    }
+    public void PushButtonLamp2(){
+        ChangeButtonColor(1);//ここでButtonNoに１を渡す
+    }
+    public void PushButtonLamp3(){
+        ChangeButtonColor(2);
+    }
+    //金庫のボタンの色を変更
+    void ChangeButtonColor (int buttonNo){//ButtonNo ＝０とかを受け取る
+        buttonColor[buttonNo]++; //buttonColorに格納された翠（１）を赤（２）にしたりしている
+        //[白の時のボタンを押したら緑に]
+        if(buttonColor[buttonNo] > COLOR_WHITE){//これさ、buttonColor[buttonNo]ってこれ自体が箱なのでは？buttonColorのbuttonNo番目じゃなくて。
+            buttonColor[buttonNo] = COLOR_GREEN;
+        }
+        //ボタンの画像を変更
+        buttonLamp[buttonNo].GetComponent<Image>().sprite =
+        buttonPicture[buttonColor[buttonNo]];
+
+        //ボタンの色順をチェック
+        if((buttonColor[0] == COLOR_BLUE)&&
+        (buttonColor[1] == COLOR_WHITE)&&
+        (buttonColor[2] == COLOR_RED)){
+            //まだトンカチを持っていない？
+            if(doesHaveHammer == false){
+                DisplayMessage("金庫の中にトンカチが入っていた");
+                buttonHammer.SetActive (true);//トンカチの絵を表示
+                imageHammerIcon.GetComponent<Image>().sprite = hammerPicture;
+
+                doesHaveHammer = true;
+            }
+        }
+    }
+ 
+
+    public void PushButtonRight(){
+        WallNo++;
+        if(WallNo > WALL_LEFT){
+            WallNo = WALL_FRONT;
+        }
+        DisplayWall (); //壁表示更新
+    }
+    public void PushButtonLeft(){
+        WallNo--;
+        if(WallNo < WALL_FRONT){
+            WallNo = WALL_LEFT;
+        }
+        DisplayWall (); //壁表示更新
+    }
+
+    void DisplayMessage(string mes){
+        buttonMessage.SetActive(true);
+        buttonMessagetext.GetComponent<Text>().text = mes;
+    }
+
+    //向いている壁を表示
+    void DisplayWall(){
+        switch(WallNo){
+            case WALL_FRONT:
+            PanelWalls.transform.localPosition = new Vector3 (0.0f,0.0f,0.0f);
+            break;
+            case WALL_RIGHT:
+            PanelWalls.transform.localPosition = new Vector3 (-1000.0f,0.0f,0.0f);
+            break;
+            case WALL_BACK:
+            PanelWalls.transform.localPosition = new Vector3 (-2000.0f,0.0f,0.0f);
+            break;
+            case WALL_LEFT:
+            PanelWalls.transform.localPosition = new Vector3 (-3000.0f,0.0f,0.0f);
+            break;
+            
+        }
+    }
+    //メモをタップ
+    public void PushButtonMemo(){
+    DisplayMessage("エッフェル塔と書いてある");
+    }
+
+    //トンカチの絵をタップ
+    public void pushButtonHammer(){
+        buttonHammer.SetActive(false);
+    }
+
+    
+    //メッセージをタップ
+    public void PushButtonMessage(){
+            buttonMessage.SetActive(false);
+        }
+    }
+
