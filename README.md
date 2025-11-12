@@ -117,7 +117,8 @@
 //スクリプトは機能・目的ごとに分ける
 GameObject gameManager = GameObject.Find("GameManager");
 
-
+##ログ
+--2025/11/12 0.5h textP214
 
 
 
