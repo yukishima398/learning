@@ -129,7 +129,9 @@ GameObject gameManager = GameObject.Find("GameManager");
 --2025/11/14 0.5h
 --物理ゲーム制作中。ゴールに関するコードを書く。
 
-
+##ログ
+--2025/11/18 1.0h
+--3日経っただけで全て忘れた
 
 
 
