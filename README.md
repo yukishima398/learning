@@ -133,8 +133,8 @@ GameObject gameManager = GameObject.Find("GameManager");
 --2025/11/18 1.0h
 --3日経っただけで全て忘れた
 
-""ログ
---2025/22/28
+##ログ
+--2025/11/20 1.5h
 
 
 
