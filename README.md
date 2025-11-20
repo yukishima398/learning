@@ -1,4 +1,4 @@
-# learning
+                                                                                                                                                                                                                                                          # learning
 学習記録
 
 ##目標
@@ -132,6 +132,10 @@ GameObject gameManager = GameObject.Find("GameManager");
 ##ログ
 --2025/11/18 1.0h
 --3日経っただけで全て忘れた
+
+""ログ
+--2025/22/28
+
 
 
 
